@@ -1,0 +1,36 @@
+@use '../../shared/styles/mixins.scss' as mixins;
+@use '../../shared/styles/palette.scss' as *;
+
+.modalWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  @include mixins.flex-row;
+  @include mixins.flex-all-center;
+  background-color: $modal-background;
+}
+
+.modal {
+  width: 100%;
+  max-width: 460px;
+  background-color: white;
+  @include mixins.flex-column;
+  @include mixins.flex-all-center;
+  padding: 32px;
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+}
+
+.modalTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  margin-bottom: 26px;
+}
+
+.modalContent {
+  padding: 26px;
+  margin-bottom: 24px;
+}

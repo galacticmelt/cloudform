@@ -1,0 +1,56 @@
+@use '../../../shared/styles/mixins.scss' as mixins;
+
+.stepTwoForm {
+  width: 100%;
+  @include mixins.flex-column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.allFields {
+  width: 100%;
+  max-width: 300px;
+  @include mixins.flex-column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.sectionWrapper {
+  width: 100%;
+  @include mixins.flex-column;
+  gap: 8px;
+}
+
+.sectionLabel {
+  font-weight: 400;
+  font-size: 14px;
+  height: 20px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+
+.iconWrapper {
+  position: absolute;
+  top: 12px;
+  right: -33.5px;
+  cursor: pointer;
+}
+
+.checkboxGroup, .radioGroup {
+  @include mixins.flex-column;
+}
+
+.formButtons {
+  width: 100%; 
+  display: flex; 
+  justify-content: space-between;
+}
+
+.errorText {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: red;
+}

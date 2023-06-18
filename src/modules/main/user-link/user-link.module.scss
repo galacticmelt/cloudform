@@ -1,0 +1,13 @@
+@use '../../../shared/styles/palette.scss' as *;
+@use '../../../shared/styles/mixins.scss' as mixins;
+
+.userLink {
+  @include mixins.flex-row;
+  gap: 5.6px;
+  & a {
+    text-decoration: none;
+    color: $theme-purple;
+    font-size: 12px;
+    font-weight: 400;
+  }
+}

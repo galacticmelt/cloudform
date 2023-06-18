@@ -1,0 +1,45 @@
+@use '../../styles/palette.scss' as *;
+
+.customCheckbox {
+  display: inline-block;
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  & input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    &:checked ~ .checkmark {
+      border: none;
+      background-color: $theme-purple;
+    }
+    &:checked ~ .checkmarkPath {
+      stroke-dasharray: 0;
+    }
+  }
+}
+
+.checkmark {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 16px;
+  width: 16px;
+  border: 1.5px solid $checkbox-border;
+  border-radius: 4px;
+  transition: 0.3s all ease;
+}
+
+.checkmarkPath {
+  fill: none;
+  stroke: white;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 24;
+  transition: 0.3s all ease;
+}
+
+.label {
+  line-height: 20px;
+}

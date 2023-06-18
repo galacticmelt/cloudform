@@ -1,0 +1,18 @@
+@use '../../shared/styles/mixins.scss' as mixins;
+@use '../../shared/styles/palette.scss' as *;
+
+.mainWrapper {
+  height: 704px;
+  width: 100%;
+  max-width: 900px;
+  @include mixins.flex-column;
+  gap: 30px;
+  background-color: $form-background;
+  padding: 25px 24px;
+  border-radius: 12px 12px 0px 0px;
+}
+
+.divideLine {
+  width: 100%;
+  border: 1px solid $divide-line
+}

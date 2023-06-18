@@ -1,0 +1,46 @@
+@use '../../styles/mixins.scss' as mixins;
+@use '../../styles/palette.scss' as *;
+
+.textInputWrapper {
+  width: 100%;
+  @include mixins.flex-column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.textInputLabel {
+  @include mixins.any-field-font-style-preset;
+}
+
+.textInputField {
+  height: 44px;
+  width: 100%;
+  border: 1px solid $text-field-border;
+  border-radius: 4px;
+  background-color: $text-field-background-prim;
+  padding: 12px;
+  @include mixins.any-field-font-style-preset;
+  &::placeholder {
+    color: $text-field-placeholder;
+  }
+  &:focus {
+    outline: none;
+  }
+  &.invalid {
+    border: 2px solid rgb(255, 0, 0);
+  }
+}
+
+.errorText {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: red;
+}
+
+.textInputTip {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: $text-field-placeholder;
+}

@@ -1,0 +1,13 @@
+@use '../../../shared/styles/mixins.scss' as mixins;
+
+.stepThreeForm {
+  width: 100%;
+  @include mixins.flex-column;
+  gap: 30px;
+}
+
+.formButtons {
+  width: 100%; 
+  display: flex; 
+  justify-content: space-between;
+}

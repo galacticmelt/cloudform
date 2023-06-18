@@ -1,0 +1,24 @@
+@use '../../../shared/styles/palette.scss' as *;
+@use '../../../shared/styles/mixins.scss' as mixins;
+
+button {
+  height: 44px;
+  width: fit-content;
+  display: flex;
+  @include mixins.flex-all-center;
+  padding: 12px 16px;
+  border-radius: 4px;
+  background-color: white;
+  color: $theme-purple;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  &.filled {
+    border: none;
+    background-color: $theme-purple;
+    color: white;
+  }
+  &.outlined {
+    border: 1.5px solid $theme-purple; 
+  }
+}

@@ -1,0 +1,31 @@
+@use './shared/styles/mixins.scss' as mixins;
+@use './shared/styles/palette.scss' as *;
+
+@font-face {
+  font-family: "SB Sans Text"; 
+  src: url("./assets/fonts/SB\ Sans\ Text.ttf") format("truetype")
+}
+
+@font-face {
+  font-family: "SB Sans Interface"; 
+  src: url("./assets/fonts/SB\ Sans\ Interface.ttf") format("truetype")
+}
+
+:root {
+  font-family: SB Sans Interface;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  background-color: $app-background;
+  color: $text-main;
+  @include mixins.flex-column;
+  align-items: center;
+  padding: 24px 0 24px 0;
+}

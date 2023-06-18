@@ -1,0 +1,37 @@
+@use '../../styles/palette.scss' as *;
+
+.customRadio {
+  display: inline-block;
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  & input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    &:checked ~ .dotPlacement {
+      border: none;
+      background-color: $theme-purple;
+    }
+    
+  }
+}
+
+.dotPlacement {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 16px;
+  width: 16px;
+  border: 1.5px solid $checkbox-border;
+  border-radius: 50%;
+  transition: 0.3s all ease;
+}
+
+.dot {
+  fill: white;
+}
+
+.label {
+  line-height: 20px;
+}

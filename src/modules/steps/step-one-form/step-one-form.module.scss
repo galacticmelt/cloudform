@@ -1,0 +1,21 @@
+@use '../../../shared/styles/mixins.scss' as mixins;
+
+.stepOneForm {
+  width: 100%;
+  @include mixins.flex-column;
+  gap: 30px;
+}
+
+.allFields {
+  width: 100%;
+  max-width: 300px;
+  @include mixins.flex-column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.formButtons {
+  width: 100%; 
+  display: flex; 
+  justify-content: space-between;
+}
