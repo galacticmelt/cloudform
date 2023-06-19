@@ -15,11 +15,12 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     console.log(props);
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-      console.log(charCount);
       const { value } = event.target;
       const count = value.replace(/\s/g, '').length;
-      setCharCount(count);
-      setInputValue(value);
+      if (count <= 200) {
+        setCharCount(count);
+        setInputValue(value);
+      }
     };
 
     const validityStyle = errorText ? styles.invalid : '';
