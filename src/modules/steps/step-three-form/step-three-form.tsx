@@ -41,7 +41,7 @@ const StepThreeForm = ({ submitHandler, backHandler }: StepThreeFormProps) => {
         defaultValue={about}
         label="About"
         placeholder="Placeholder"
-        tip="Tip"
+        symbolCount={true}
         errorText={errors.about?.message}
       />
       <div className={styles.formButtons}>

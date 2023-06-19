@@ -9,12 +9,17 @@ interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 
 const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ label, symbolCount, errorText, ...props }, ref) => {
+    const [inputValue, setInputValue] = useState(props.value);
     const [charCount, setCharCount] = useState(0);
 
+    console.log(props);
+
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      console.log(charCount);
       const { value } = event.target;
       const count = value.replace(/\s/g, '').length;
       setCharCount(count);
+      setInputValue(value);
     };
 
     const validityStyle = errorText ? styles.invalid : '';
@@ -23,10 +28,11 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       <div className={styles.textAreaWrapper}>
         {label && <span className={styles.textAreaLabel}>{label}</span>}
         <textarea
-          onChange={handleChange}
+          value={inputValue}
           className={[styles.textAreaField, validityStyle].join(' ')}
           {...props}
           ref={ref}
+          onChange={handleChange}
         />
         {symbolCount && <span className={styles.textAreaTip}>{charCount}</span>}
         {errorText && <span className={styles.errorText}>{errorText}</span>}

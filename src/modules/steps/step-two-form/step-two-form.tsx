@@ -43,11 +43,10 @@ export default function StepTwoForm({ submitHandler, backHandler }: StepTwoFormP
   });
 
   const onSubmit: SubmitHandler<StepTwoFormData> = async ({ advantages, checkbox, radio }) => {
+    console.log(checkbox);
     dispatch(combinedFormActions.setCombinedFormData({ advantages, checkbox, radio }));
     submitHandler();
   };
-
-  if (errors) console.log(errors);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.stepTwoForm}>
