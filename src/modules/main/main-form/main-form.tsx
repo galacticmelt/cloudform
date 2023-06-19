@@ -27,6 +27,7 @@ export default function MainForm() {
   const dispatch = useAppDispatch();
 
   const onSubmit: SubmitHandler<MainFormData> = async ({ email, phone }) => {
+    console.log(phone.length);
     dispatch(combinedFormActions.setCombinedFormData({ email, phone }));
     navigate('/create');
   };

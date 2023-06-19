@@ -7,7 +7,11 @@ export const VALIDATION_MESSAGES = {
   FIELD_REQUIRED: 'Это поле обязательно к заполнению',
   AT_LEAST_ONE_INPUT: 'Добавьте хотя бы одно поле',
   AT_LEAST_ONE_OPTION: 'Выберите хотя бы один вариант',
-  WRONG_FORMAT: 'Введите существущий электронный адрес'
+  WRONG_EMAIL_FORMAT: 'Введите существущий электронный адрес',
+  WRONG_PHONE_FORMAT: 'Введите полный номер телефона',
+  MAX_30: 'Максимальная длина 30 символов',
+  MAX_50: 'Максимальная длина 50 символов',
+  FORBIDDEN_SYMBOL: 'Недопустимые символы'
 };
 
 export const EMAIL_VALIDATION = {
