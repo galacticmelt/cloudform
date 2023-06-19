@@ -1,4 +1,4 @@
-import { useState, forwardRef, InputHTMLAttributes } from 'react';
+import { forwardRef, InputHTMLAttributes } from 'react';
 import styles from './radio.module.scss';
 
 interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {

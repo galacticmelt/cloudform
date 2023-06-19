@@ -7,7 +7,7 @@ export interface StepOneFormData {
   nickname: string;
   name: string;
   surname: string;
-  sex: string;
+  sex: Sex;
 }
 
 export type Option = {

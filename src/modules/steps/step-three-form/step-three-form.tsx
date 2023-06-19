@@ -10,8 +10,8 @@ import styles from './step-three-form.module.scss';
 import { stepThreeSchema } from '../../../shared/common/validation';
 
 interface StepThreeFormProps {
-  submitHandler: (...args: unknown[]) => void;
-  backHandler: (...args: unknown[]) => void;
+  submitHandler: () => void;
+  backHandler: () => void;
 }
 
 const StepThreeForm = ({ submitHandler, backHandler }: StepThreeFormProps) => {

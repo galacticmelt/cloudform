@@ -1,7 +1,7 @@
 import Button from '../../shared/components/button/button';
 import { ErrorIconDecorated } from '../../assets/vector-images';
 import { useRouteError, isRouteErrorResponse, useNavigate } from 'react-router-dom';
-import styles, { errorButton } from './error.module.scss';
+import styles from './error.module.scss';
 
 export default function Error() {
   const error = useRouteError();
@@ -18,6 +18,16 @@ export default function Error() {
     errorMessage = 'Unknown error';
   }
 
+  const handleClose = () => {
+    if (isRouteErrorResponse(error)) {
+      if (error.status === 404) {
+        navigate(-1);
+        return;
+      }
+    }
+    navigate(0);
+  };
+
   return (
     errorMessage && (
       <div className={styles.errorWrapper}>
@@ -27,8 +37,8 @@ export default function Error() {
             <ErrorIconDecorated />
           </div>
           <h4 className={styles.errorText}>{errorMessage}</h4>
-          <div className={errorButton}>
-            <Button id="button-close" onClick={() => navigate(0)}>
+          <div className={styles.errorButton}>
+            <Button id="button-close" onClick={handleClose}>
               Закрыть
             </Button>
           </div>

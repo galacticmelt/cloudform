@@ -11,11 +11,11 @@ import { stepOneSchema } from '../../../shared/common/validation';
 import styles from './step-one-form.module.scss';
 
 interface StepOneFormProps {
-  nextHandler: (...args: unknown[]) => void;
-  backHandler: (...args: unknown[]) => void;
+  nextHandler: () => void;
+  backHandler: () => void;
 }
 
-export const StepOneForm = ({ nextHandler, backHandler }: StepOneFormProps) => {
+export default function StepOneForm({ nextHandler, backHandler }: StepOneFormProps) {
   const { nickname, name, surname, sex } = useAppSelector((state) => state.combinedForm);
   const dispatch = useAppDispatch();
 
@@ -61,7 +61,6 @@ export const StepOneForm = ({ nextHandler, backHandler }: StepOneFormProps) => {
         <Select
           id="field-sex"
           placeholderOption="Не выбрано"
-          defaultValue={sex}
           options={SEX_OPTIONS}
           label="Sex"
           errorText={errors.sex?.message}
@@ -78,8 +77,4 @@ export const StepOneForm = ({ nextHandler, backHandler }: StepOneFormProps) => {
       </div>
     </form>
   );
-};
-
-StepOneForm.displayName = 'StepOneForm';
-
-export default StepOneForm;
+}

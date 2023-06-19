@@ -1,14 +1,14 @@
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { MainFormData } from '../../../shared/common/types';
 import { withHookFormMask } from 'use-mask-input';
-import TextInput from '../../../shared/components/text-input/text-input';
-import Button from '../../../shared/components/button/button';
-import { useNavigate } from 'react-router-dom';
-import styles from './main-form.module.scss';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import { combinedFormActions } from '../../../store/features/combinedForm/combinedForm.slice';
 import { mainFormSchema } from '../../../shared/common/validation';
+import TextInput from '../../../shared/components/text-input/text-input';
+import Button from '../../../shared/components/button/button';
+import styles from './main-form.module.scss';
 
 export default function MainForm() {
   const { phone, email } = useAppSelector((state) => state.combinedForm);

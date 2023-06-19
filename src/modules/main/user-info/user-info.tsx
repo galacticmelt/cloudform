@@ -1,5 +1,3 @@
-import { FolderIcon } from '../../../assets/vector-images';
-import { MOCK_USER_LINKS } from '../../../shared/common/constants';
 import Avatar from '../avatar/avatar';
 import UserLink from '../user-link/user-link';
 import styles from './user-info.module.scss';

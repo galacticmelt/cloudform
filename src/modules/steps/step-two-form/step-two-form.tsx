@@ -1,21 +1,19 @@
 import { useForm, SubmitHandler, useFieldArray } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { NEW_ADVANTAGE } from '../../../shared/common/constants';
 import { StepTwoFormData } from '../../../shared/common/types';
-import TextInput from '../../../shared/components/text-input/text-input';
 import Button from '../../../shared/components/button/button';
-import Checkbox from '../../../shared/components/checkbox/checkbox';
-import Radio from '../../../shared/components/radio/radio';
+import RadioGroup from '../radio-group/radio-group';
+import CheckboxGroup from '../checkbox-group/checkbox-group';
 import { MOCK_OPTIONS } from '../../../shared/common/constants';
-import { AddIcon, BucketIcon } from '../../../assets/vector-images';
 import { useAppSelector, useAppDispatch } from '../../../store/hooks';
 import { combinedFormActions } from '../../../store/features/combinedForm/combinedForm.slice';
 import { stepTwoSchema } from '../../../shared/common/validation';
+import Advantages from '../advantages/advantages';
 import styles from './step-two-form.module.scss';
 
 interface StepTwoFormProps {
-  submitHandler: (...args: unknown[]) => void;
-  backHandler: (...args: unknown[]) => void;
+  submitHandler: () => void;
+  backHandler: () => void;
 }
 
 export default function StepTwoForm({ submitHandler, backHandler }: StepTwoFormProps) {
@@ -33,17 +31,12 @@ export default function StepTwoForm({ submitHandler, backHandler }: StepTwoFormP
     reValidateMode: 'onChange'
   });
 
-  const {
-    fields: advantagesFields,
-    append,
-    remove
-  } = useFieldArray<StepTwoFormData>({
+  const { fields, append, remove } = useFieldArray<StepTwoFormData>({
     control,
     name: 'advantages'
   });
 
   const onSubmit: SubmitHandler<StepTwoFormData> = async ({ advantages, checkbox, radio }) => {
-    console.log(checkbox);
     dispatch(combinedFormActions.setCombinedFormData({ advantages, checkbox, radio }));
     submitHandler();
   };
@@ -53,66 +46,16 @@ export default function StepTwoForm({ submitHandler, backHandler }: StepTwoFormP
       <div className={styles.allFields}>
         <div className={styles.sectionWrapper}>
           <label className={styles.sectionLabel}>Advantages</label>
-          {<span className={styles.errorText}>{errors.advantages?.message}</span>}
-          {advantagesFields.map((field, index) => {
-            return (
-              <div className={styles.inputWithIcon} key={field.id}>
-                <TextInput
-                  id={`field-advantages-${index}`}
-                  errorText={errors?.advantages?.[index]?.value?.message}
-                  {...register(`advantages.${index}.value`)}
-                />
-                <div
-                  id={`button-remove-${index}`}
-                  onClick={() => remove(index)}
-                  className={styles.iconWrapper}
-                >
-                  <BucketIcon />
-                </div>
-              </div>
-            );
-          })}
-          <Button
-            id="button-add"
-            variant="outlined"
-            onClick={() => append(NEW_ADVANTAGE)}
-            style={{ padding: '16px', width: 44 }}
-          >
-            <AddIcon />
-          </Button>
+          <Advantages {...{ fields, append, remove, register, errors }} />
         </div>
         <div className={styles.sectionWrapper}>
           <label className={styles.sectionLabel}>Checkbox group</label>
-          <div className={styles.checkboxGroup}>
-            {MOCK_OPTIONS.map(({ label, value }, index) => {
-              return (
-                <Checkbox
-                  id={`field-checkbox-group-option-${index}`}
-                  key={value}
-                  label={label}
-                  value={value}
-                  {...register('checkbox')}
-                />
-              );
-            })}
-          </div>
+          <CheckboxGroup options={MOCK_OPTIONS} {...register('checkbox')} />
           {<span className={styles.errorText}>{errors.checkbox?.message}</span>}
         </div>
         <div className={styles.sectionWrapper}>
           <label className={styles.sectionLabel}>Radio group</label>
-          <div className={styles.radioGroup}>
-            {MOCK_OPTIONS.map(({ label, value }, index) => {
-              return (
-                <Radio
-                  id={`field-radio-group-option-${index}`}
-                  key={value}
-                  value={value}
-                  label={label}
-                  {...register('radio')}
-                />
-              );
-            })}
-          </div>
+          <RadioGroup options={MOCK_OPTIONS} {...register('radio')} />
         </div>
       </div>
       <div className={styles.formButtons}>

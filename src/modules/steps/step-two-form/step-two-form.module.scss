@@ -21,9 +21,7 @@
 }
 
 .sectionLabel {
-  font-weight: 400;
-  font-size: 14px;
-  height: 20px;
+  @include mixins.any-field-font-style-preset;
 }
 
 .inputWithIcon {
@@ -45,6 +43,7 @@
   width: 100%; 
   display: flex; 
   justify-content: space-between;
+  margin-top: 36px;
 }
 
 .errorText {

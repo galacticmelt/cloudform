@@ -12,8 +12,6 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     const [inputValue, setInputValue] = useState(props.value);
     const [charCount, setCharCount] = useState(0);
 
-    console.log(props);
-
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       const { value } = event.target;
       const count = value.replace(/\s/g, '').length;

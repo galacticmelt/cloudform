@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './avatar.module.scss';
 import { stringAvatar } from '../../../shared/common/helpers';
 
