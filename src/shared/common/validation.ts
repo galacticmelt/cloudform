@@ -21,9 +21,7 @@ export const stepTwoSchema = yup.object({
     .array()
     .of(
       yup.object().shape({
-        value: yup
-          .string()
-          .required(VALIDATION_MESSAGES.FIELD_REQUIRED)
+        value: yup.string().required(VALIDATION_MESSAGES.FIELD_REQUIRED)
       })
     )
     .min(1, VALIDATION_MESSAGES.AT_LEAST_ONE_INPUT)

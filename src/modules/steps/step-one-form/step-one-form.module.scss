@@ -8,7 +8,6 @@
 
 .allFields {
   width: 100%;
-  max-width: 300px;
   @include mixins.flex-column;
   align-items: flex-start;
   gap: 30px;
@@ -18,4 +17,10 @@
   width: 100%; 
   display: flex; 
   justify-content: space-between;
+}
+
+@media screen and (min-width: 400px) {
+  .allFields {
+    max-width: 300px;
+  }
 }

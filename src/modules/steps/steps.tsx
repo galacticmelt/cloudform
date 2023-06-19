@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import StepsProgressBar from './steps-progress-bar/steps-progress-bar';
-import StepProgressBar from './steps-progress-bar/multistep-bar';
 import StepOneForm from './step-one-form/step-one-form';
 import { useSteps } from '../../shared/common/hooks';
 import { useNavigate } from 'react-router-dom';
@@ -51,17 +50,19 @@ export default function Steps() {
   }, [submitError.status]);
 
   return (
-    <div className={styles.stepsWrapper}>
-      <div className={styles.progressBarWrapper}>
-        <StepProgressBar stepIndex={currentStepIndex} />
+    <div className={styles.steps}>
+      <div className={styles.stepsContent}>
+        <div className={styles.progressBarWrapper}>
+          <StepsProgressBar stepIndex={currentStepIndex} stepsCount={steps.length} />
+        </div>
+        {steps[currentStepIndex]}
+        <Modal
+          isOpened={submitSuccess ? true : false}
+          title={'Форма успешно отправлена'}
+          content={<SuccessIconDecorated />}
+          handleClose={handleModalClose}
+        />
       </div>
-      {steps[currentStepIndex]}
-      <Modal
-        isOpened={submitSuccess ? true : false}
-        title={'Форма успешно отправлена'}
-        content={<SuccessIconDecorated />}
-        handleClose={handleModalClose}
-      />
     </div>
   );
 }

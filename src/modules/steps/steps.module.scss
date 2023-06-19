@@ -1,15 +1,29 @@
 @use '../../shared/styles/mixins.scss' as mixins;
 @use '../../shared/styles/palette.scss' as *;
 
-.stepsWrapper {
-  width: 100%;
+.steps {
+  width: 100%; 
   max-width: 900px;
   @include mixins.flex-column;
+  @include mixins.flex-all-center;
   background-color: $form-background;
-  padding: 62px 110px 80px;
+  padding: 62px 0 80px 0;
   border-radius: 12px;
 }
 
+.stepsContent {
+  @include mixins.flex-column;
+  width: 100%;
+  max-width: 90%;
+}
+
 .progressBarWrapper {
+  width: 100%;
   margin-bottom: 103px;
+}
+
+@media screen and (min-width: 400px) {
+  .stepsContent {
+    max-width: 77%;
+  }
 }

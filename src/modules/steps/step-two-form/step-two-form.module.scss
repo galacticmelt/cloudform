@@ -8,8 +8,7 @@
 }
 
 .allFields {
-  width: 100%;
-  max-width: 300px;
+  width: 92%;
   @include mixins.flex-column;
   align-items: flex-start;
   gap: 30px;
@@ -53,4 +52,10 @@
   font-weight: 400;
   line-height: 16px;
   color: red;
+}
+
+@media screen and (min-width: 400px) {
+  .allFields {
+    max-width: 300px;
+  }
 }

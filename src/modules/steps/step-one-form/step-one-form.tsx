@@ -5,10 +5,10 @@ import { SEX_OPTIONS, VALIDATION_MESSAGES } from '../../../shared/common/constan
 import TextInput from '../../../shared/components/text-input/text-input';
 import Button from '../../../shared/components/button/button';
 import Select from '../../../shared/components/select/select';
-import styles from './step-one-form.module.scss';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import { combinedFormActions } from '../../../store/features/combinedForm/combinedForm.slice';
 import { stepOneSchema } from '../../../shared/common/validation';
+import styles from './step-one-form.module.scss';
 
 interface StepOneFormProps {
   nextHandler: (...args: unknown[]) => void;
@@ -64,7 +64,6 @@ export const StepOneForm = ({ nextHandler, backHandler }: StepOneFormProps) => {
           defaultValue={sex}
           options={SEX_OPTIONS}
           label="Sex"
-          tip="Sex"
           errorText={errors.sex?.message}
           {...register('sex', { required: VALIDATION_MESSAGES.FIELD_REQUIRED })}
         />

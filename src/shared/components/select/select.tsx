@@ -1,6 +1,5 @@
 import { forwardRef, SelectHTMLAttributes } from 'react';
 import styles from './select.module.scss';
-import { ArrowDownIcon } from '../../../assets/vector-images';
 
 type Option = {
   name: string;
