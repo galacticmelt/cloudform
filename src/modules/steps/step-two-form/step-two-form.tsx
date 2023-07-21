@@ -28,8 +28,7 @@ export default function StepTwoForm({ submitHandler, backHandler }: StepTwoFormP
   } = useForm<StepTwoFormData>({
     defaultValues: { advantages, checkbox, radio },
     resolver: yupResolver(stepTwoSchema),
-    reValidateMode: 'onChange',
-    shouldUnregister: true
+    reValidateMode: 'onChange'
   });
 
   const { fields, append, remove } = useFieldArray<StepTwoFormData>({

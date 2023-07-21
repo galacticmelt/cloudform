@@ -16,18 +16,15 @@ export const stepOneSchema = yup.object({
   nickname: yup
     .string()
     .required(VALIDATION_MESSAGES.FIELD_REQUIRED)
-    .test('len', VALIDATION_MESSAGES.MAX_30, (val) => val.length < 30)
-    .matches(/^[a-zA-Z]+$/i, VALIDATION_MESSAGES.FORBIDDEN_SYMBOL),
+    .test('len', VALIDATION_MESSAGES.MAX_30, (val) => val.length < 30),
   name: yup
     .string()
     .required(VALIDATION_MESSAGES.FIELD_REQUIRED)
-    .test('len', VALIDATION_MESSAGES.MAX_50, (val) => val.length < 50)
-    .matches(/^[a-zA-Z]+$/i, VALIDATION_MESSAGES.FORBIDDEN_SYMBOL),
+    .test('len', VALIDATION_MESSAGES.MAX_50, (val) => val.length < 50),
   surname: yup
     .string()
     .required(VALIDATION_MESSAGES.FIELD_REQUIRED)
-    .test('len', VALIDATION_MESSAGES.MAX_50, (val) => val.length < 50)
-    .matches(/^[a-zA-Z]+$/i, VALIDATION_MESSAGES.FORBIDDEN_SYMBOL),
+    .test('len', VALIDATION_MESSAGES.MAX_50, (val) => val.length < 50),
   sex: yup.string().required(VALIDATION_MESSAGES.FIELD_REQUIRED)
 });
 
@@ -38,6 +35,7 @@ export const stepTwoSchema = yup.object({
       yup.object().shape({
         value: yup
           .string()
+          .required(VALIDATION_MESSAGES.FIELD_REQUIRED)
           .test('len', VALIDATION_MESSAGES.MAX_30, (val) => val.length < 30)
       })
     )

@@ -49,6 +49,7 @@ export default function Advantages({ fields, append, remove, register, errors }:
         );
       })}
       <Button
+        type='button'
         id="button-add"
         variant="outlined"
         onClick={handleAppend}
