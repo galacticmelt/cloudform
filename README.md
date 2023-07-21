@@ -1,2 +1,2 @@
 # ✨Multistep form✨
-## app link: https://galacticmelt.github.io/cloudform/
+## [link to the app](https://galacticmelt.github.io/multistep-form/)
