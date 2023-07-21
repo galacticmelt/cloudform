@@ -38,7 +38,6 @@ export const stepTwoSchema = yup.object({
       yup.object().shape({
         value: yup
           .string()
-          .required(VALIDATION_MESSAGES.FIELD_REQUIRED)
           .test('len', VALIDATION_MESSAGES.MAX_30, (val) => val.length < 30)
       })
     )

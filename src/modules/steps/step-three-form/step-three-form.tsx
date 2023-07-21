@@ -6,8 +6,8 @@ import TextArea from '../../../shared/components/text-area/text-area';
 import Button from '../../../shared/components/button/button';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import { combinedFormActions } from '../../../store/features/combinedForm/combinedForm.slice';
-import styles from './step-three-form.module.scss';
 import { stepThreeSchema } from '../../../shared/common/validation';
+import styles from './step-three-form.module.scss';
 
 interface StepThreeFormProps {
   submitHandler: () => void;
@@ -38,7 +38,6 @@ const StepThreeForm = ({ submitHandler, backHandler }: StepThreeFormProps) => {
       <TextArea
         {...register('about', { required: VALIDATION_MESSAGES.FIELD_REQUIRED })}
         id="field-about"
-        defaultValue={about}
         label="About"
         placeholder="Placeholder"
         symbolCount={true}

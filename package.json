@@ -1,6 +1,6 @@
 {
-  "homepage": "http://galacticmelt.github.io/cloudform",
-  "name": "cloudform",
+  "homepage": "http://galacticmelt.github.io/multistep-form",
+  "name": "multistep-form",
   "private": true,
   "version": "0.0.0",
   "type": "module",

@@ -21,6 +21,10 @@ interface AdvantagesProps {
 }
 
 export default function Advantages({ fields, append, remove, register, errors }: AdvantagesProps) {
+  const handleAppend = () => {
+    if (fields.length === 5) return;
+    append(NEW_ADVANTAGE);
+  };
   return (
     <div className={styles.checkboxGroupWrapper}>
       {errors.advantages?.message && (
@@ -47,7 +51,7 @@ export default function Advantages({ fields, append, remove, register, errors }:
       <Button
         id="button-add"
         variant="outlined"
-        onClick={() => append(NEW_ADVANTAGE)}
+        onClick={handleAppend}
         style={{ padding: '16px', width: 44 }}
       >
         <AddIcon />
